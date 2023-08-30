@@ -1,2 +1,2 @@
 #!/bin/bash
-echo "$(ls -a | LC_COLLATE=C sort -d -k1.1,1n -k1.2,1 -k1.3 | sed -E ':a;N;$!ba;s/\n/, /g' | sed -E 's/\.\/\.$/, .\//;s/\.\/\.\.$/, ..\//;s/([0-9a-zA-Z]+) /\1,/g;s/,$/\n/')"
+ls -A --format=single-column | sort -d -k1.2,1.3 -k1,1 | sed -e 's/^\.\{1,2\}$/&\//' | tr '\n' ',' echo
