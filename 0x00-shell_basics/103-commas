@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -A --format=single-column | sort -d -k1.2,1.3 -k1,1 | sed -e 's/^\.\{1,2\}$/&\//' | tr '\n' ',' echo
+ls -amvp
