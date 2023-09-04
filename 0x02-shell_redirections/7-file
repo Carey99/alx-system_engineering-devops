@@ -1,2 +1,2 @@
 #!/bin/bash
-echo "Best School" > '\*\\'"Best School"\'\\*$\?\*\*\*\*\*:)'
+echo "Best School" | xargs -I {} sh -c 'echo {} > '\*\\'"Best School"\'\\*\?\*\*\*\*\*:)\'
