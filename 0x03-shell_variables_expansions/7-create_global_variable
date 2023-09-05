@@ -1,2 +1,2 @@
 #!/bin/bash
-export BEST="School" | source
+echo 'BEST="School"' | sudo tee -a /etc/profile
