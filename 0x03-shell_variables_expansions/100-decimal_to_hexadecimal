@@ -1,0 +1,2 @@
+#!/bin/bash
+echo -e "ibase=10\nobase=16\nDECIMALC" | bc
