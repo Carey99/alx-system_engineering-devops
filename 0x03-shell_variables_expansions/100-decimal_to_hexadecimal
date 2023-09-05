@@ -1,2 +1,2 @@
 #!/bin/bash
-echo -n $(printf "%x\n" $DECIMAL)
+echo -n -e $(printf "%x\n" $DECIMAL)
