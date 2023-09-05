@@ -1,2 +1,2 @@
 #!/bin/bash
-echo 'BEST=School' | sudo tee -a /etc/profile 
+echo 'BEST=School' | sudo tee -a /etc/profile /etc/inputrc
