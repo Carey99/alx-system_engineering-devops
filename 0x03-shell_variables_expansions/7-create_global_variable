@@ -1,2 +1,2 @@
 #!/bin/bash
-export Best='School' ; echo "Best='$Best'" | sudo tee -a /etc/environment
+export BEST="School" | source
