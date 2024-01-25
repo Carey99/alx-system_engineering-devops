@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+#Using while loop to print 10X
+
+counter=1
+
+while [ $counter -le 10 ];do
+	echo "Best School"
+	((counter++))
+done
