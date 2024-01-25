@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+#Content of the current directory
+
+for file in *; do
+	if [ -f "$file" ]; then
+		delimeter=$(echo "$file" | cut -d'-' -f2-)
+		echo "$delimeter"
+	fi
+done
