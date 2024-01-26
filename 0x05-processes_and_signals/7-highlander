@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+#Highlander
+
+terminate_handler() {
+    echo "I am invincible!!!"
+    exit 0
+}
+trap terminate_handler SIGTERM
+while true; do
+    echo "To infinity and beyond"
+    sleep 2
+done
