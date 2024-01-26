@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
-#Stops the 4-to_infinity_and_beyond without using kill
+# kills "7-highlander"
 
-pkill -f "7-highlander"
+pkill -f "highlander" --signal SIGKILL
