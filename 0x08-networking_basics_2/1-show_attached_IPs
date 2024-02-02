@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#Show attached IPs
+
+ifconfig | grep -oP 'inet \K[\d.]+'
