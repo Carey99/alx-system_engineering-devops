@@ -1,12 +1,16 @@
-file { '/etc/ssh/ssh_config':
-  ensure  => file,
-  mode    => '0644',
-  content => template('module_name/ssh_config.erb'),
-  notify  => Service['ssh'],
+# set up your client SSH configuration file so that you can connect to a server without typing a password.
+include stdlib
+
+file_line { 'Turn off passwd auth':
+  ensure => present,
+  path   => '/etc/ssh/ssh_config',
+  line   => '    PasswordAuthentication no',
+  replace => true,
 }
 
-service { 'ssh':
-  ensure  => running,
-  enable  => true,
-  require => File['/etc/ssh/ssh_config'],
+file_line { 'Delare identity file':
+  ensure => present,
+  path   => '/etc/ssh/ssh_config',
+  line   => '     IdentityFile ~/.ssh/school',
+  replace => true,
 }
