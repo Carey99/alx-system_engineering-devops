@@ -1,0 +1,5 @@
+#Config to ssh without a paasword
+
+Host *
+	PasswordAuthentication no
+	IdentifyFile ~/.ssh/school
