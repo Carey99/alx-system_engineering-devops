@@ -3,6 +3,4 @@
 
 passphrase="betty"
 
-mkdir -p ~/.ssh
-
-ssh-keygen -b 4096 -f ~/.ssh/school -N "$passphrase"
+ssh-keygen -b 4096 -f school -N "$passphrase"
