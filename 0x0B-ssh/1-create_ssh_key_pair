@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#Creates a key pair of 4096 bits
+
+passphrase="betty"
+
+mkdir -p ~/.ssh
+
+ssh-keygen -b 4096 -f ~/.ssh/school -N "$passphrase"
