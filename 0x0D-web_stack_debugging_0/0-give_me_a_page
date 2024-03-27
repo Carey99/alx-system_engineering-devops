@@ -1,20 +1,5 @@
 #!/usr/bin/env bash
 #Listens to all incoming connection at port 8080
 
-shutdown() {
-	exit 0
-}
-
-trap 'shutdown' SIGINT SIGTERM
-
-handle_connection() {
-	while true; do
-		echo -e "HTTP/1.1 200 OK\nContent-Length: 16\n\nHello Holberton" | nc -l 0 8080
-	done
-}
-
-main() {
-	handle_connection
-}
-
-main
+echo "ServerName localhost" >> /etc/apache2.conf
+service apache2 start
