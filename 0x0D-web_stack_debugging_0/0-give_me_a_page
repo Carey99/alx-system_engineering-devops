@@ -2,6 +2,5 @@
 #Listens to all incoming connection at port 8080
 
 while true; do
-	echo -e "HTTP/1.1 200 OK\nContent-Length: 16\n\nHello Holberton" |
-nc -l 0 8080
+	echo -e "HTTP/1.1 200 OK\nContent-Length: 16\n\nHello Holberton" | nc -l 0 8080
 done
