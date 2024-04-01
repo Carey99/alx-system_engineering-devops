@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+#Configuring both servers to be identical
+
+function error {
+	echo "Error:  $1" >&2
+	exit 1
+}
+if [[ $EUD -ne O ]]; then
+	error "Run as root!"
+fi
+
+apt-get update
+apt-get install -y nginx || error "Can't install nginx"
+
+cat << EOF > /etc/nginx/sites-available/custom_header
+server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
+
+	server_name _;
+
+	add_header X-serverd-By \$hostname;
+
+	location / {
+		# Configuration directives
+	}
+}
+EOF
+
+ln -s /etc/nginx/sites-available/custom_header /etc/nginx/sites-enabled/
+
+nginx -t && systemctl reload nginx
