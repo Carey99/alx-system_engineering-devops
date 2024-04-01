@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
 #Configuring both servers to be identical
 
-
-sudo apt-get update
-sudo apt-get install -y nginx
+sudo apt-get -y update
+sudo apt-get -y install nginx
 sudo ufw allow 'Nginx HTTP'
 sudo mkdir -p /var/www/html /var/www/error
 sudo chmod -R 755 /var/www
