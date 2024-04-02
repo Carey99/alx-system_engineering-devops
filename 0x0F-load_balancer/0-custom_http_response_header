@@ -6,6 +6,7 @@ sudo apt-get -y install nginx
 sudo ufw allow 'Nginx HTTP'
 sudo mkdir -p /var/www/html /var/www/error
 sudo chmod -R 755 /var/www
+sudo chown -R $USER:$USER /var/www/html /var/www/error
 echo 'Hello World!' > /var/www/html/index.html
 echo "Ceci n'est pas une page" > /var/www/html/404.html
 server_config=\
@@ -25,7 +26,7 @@ server_config=\
 		internal;
 	}
 }"
-echo "$server_config" > /etc/nginx/sites-enabled/default
+echo "$server_config" > sudo /etc/nginx/sites-enabled/default
 if pgrep nginx >/dev/null; then
 	sudo service nginx restart
 else
