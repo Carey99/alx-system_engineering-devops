@@ -28,4 +28,8 @@ server_config=\
 	}
 }"
 echo "$server_config" > /etc/nginx/sites-enabled/default
-sudo service nginx restart
+if pgrep nginx >/dev/null; then
+	sudo service nginx restart
+else
+	sudo service nginx start
+fi
