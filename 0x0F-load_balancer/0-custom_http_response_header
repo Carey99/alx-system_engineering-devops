@@ -25,4 +25,4 @@ server {
 EOF"
 
 # Restart Nginx to apply changes
-sudo systemctl start nginx
+sudo systemctl restart nginx
