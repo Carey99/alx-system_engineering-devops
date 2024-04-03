@@ -1,28 +1,31 @@
-#!/bin/env bash
-# Script to configure Nginx with a custom HTTP response header
+#!/usr/bin/env bash
+# configure web-02 to be identical to web-01
+sudo apt-get -y update
+sudo apt-get -y install nginx
+sudo ufw allow 'Nginx HTTP'
+sudo mkdir -p /var/www/html /var/www/error
+sudo chmod -R 755 /var/www
+echo 'Hello World!' > /var/www/html/index.html
+echo "Ceci n'est pas une page" > /var/www/html/404.html
+server_config=\
+"server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
+	root /var/www/html;
+	index index.html index.htm index.nginx-debian.html;
+	server_name _;
+	add_header X-Served-By \$hostname;
+	location / {
+		try_files \$uri \$uri/ =404;
+	}
+	if (\$request_filename ~ redirect_me){
+		rewrite ^ https://youtube.com permanent;
+	}
+	error_page 404 /404.html;
+	location = /404.html {
+		internal;
+	}
+}"
 
-# Install Nginx
-sudo apt-get update
-sudo apt-get install -y nginx
-
-# Define the custom header value
-header_value=$(hostname)
-
-# Configure Nginx to include the custom header
-sudo bash -c "cat << EOF > /etc/nginx/conf.d/custom_response_header.conf
-server {
-    listen 80 default_server;
-    listen [::]:80 default_server;
-
-    server_name _;
-
-    location / {
-        add_header X-Served-By $header_value;
-        root /var/www/html;
-        index index.html index.htm index.nginx-debian.html;
-    }
-}
-EOF"
-
-# Restart Nginx to apply changes
-sudo systemctl restart nginx
+echo "$server_config" > /etc/nginx/sites-enabled/default
+sudo service nginx restart
