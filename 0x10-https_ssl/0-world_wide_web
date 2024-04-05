@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # Display info on sub-domain
+
 sub_domains=( "www" "lb-01" "web-01" "web-02" )
 
 run_dig () {
