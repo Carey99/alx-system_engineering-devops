@@ -46,5 +46,5 @@ frontend ridhwan-frontend-https
 
 backend ridhwan-backend
         balance roundrobin
-        server 76716-web-02 54.237.210.122:80 check
-        server 76716-web-01 54.160.78.126:80 check
+        server 76716-web-02 100.26.250.243:80 check
+        server 76716-web-01 54.236.33.98:80 check
