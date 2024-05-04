@@ -19,7 +19,7 @@ def todo_list(emp_id):
     for todo in todo_data:
         if todo["completed"] is True:
             completed += 1
-    print("Employee {} is done with tasks({}/{})".format(
+    print("Employee {} is done with tasks({}/{}):".format(
         name, completed, total))
 
     for todo in todo_data:
