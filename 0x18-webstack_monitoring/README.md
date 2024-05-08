@@ -52,8 +52,3 @@ All your Bash script files must be executable
 Your Bash script must pass Shellcheck (version 0.3.7) without any error
 The first line of all your Bash scripts should be exactly #!/usr/bin/env bash
 The second line of all your Bash scripts should be a comment explaining what is the script doing
-Your servers
-Name	Username	IP	State	
-527609-web-01	ubuntu	100.26.250.243	running	
-527609-web-02	ubuntu	54.236.33.98	running	
-527609-lb-01	ubuntu	18.207.235.220	running	
